@@ -9,25 +9,34 @@
 
 function destroyer(arr) {
     // Remove all the values
+    var args = Array.prototype.slice.call(arguments);
+    console.log(args);
+    console.log(args.length);
+    for (var i in args){
+        console.log(args[i]);
+    }
     var newArr = [];
     newArr = Array.from(arr);
     console.log(newArr);
     var newArrLength = newArr.length;
     console.log(newArrLength);
-    var lastElemnt = arr[newArr.length-1];
-    console.log(lastElemnt);
-    var nextToLastElem = arr[newArr.length-2];
-    console.log(nextToLastElem);
-    var newArr2 = [];
-    for (var i in newArr){
-        if (arr[i] !== lastElemnt && arr[i] !== nextToLastElem){
-            newArr2.push(newArr[i])
-        }
-    }
-    console.log(newArr2);
+
+
+
+    // var lastElemnt = arr[newArr.length-1];
+    // console.log(lastElemnt);
+    // var nextToLastElem = arr[newArr.length-2];
+    // console.log(nextToLastElem);
+    // var newArr2 = [];
+    // for (var i in newArr){
+    //     if (arr[i] !== lastElemnt && arr[i] !== nextToLastElem){
+    //         newArr2.push(newArr[i])
+    //     }
+    // }
+    // console.log(newArr2);
     // return arr;
 }
 
-destroyer([1, 2, 3, 1, 2, 3], 2, 3);
+// destroyer([1, 2, 3, 1, 2, 3], 2, 3);
 destroyer([3, 5, 1, 2, 2], 2, 3, 5);
-destroyer(["tree", "hamburger", 53], "tree", 53);
+// destroyer(["tree", "hamburger", 53], "tree", 53);
