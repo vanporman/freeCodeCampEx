@@ -10,16 +10,40 @@
 function destroyer(arr) {
     // Remove all the values
     var args = Array.prototype.slice.call(arguments);
+    var argsLength = args.length;
     console.log(args);
-    console.log(args.length);
-    for (var i in args){
-        console.log(args[i]);
-    }
     var newArr = [];
     newArr = Array.from(arr);
     console.log(newArr);
-    var newArrLength = newArr.length;
-    console.log(newArrLength);
+
+    var argsFirstHalf;
+
+    function thisIsFilter(inputArr) {
+        argsFirstHalf  = inputArr.slice(1,argsLength);
+        return argsFirstHalf;
+    }
+    thisIsFilter(args);
+
+    console.log(argsFirstHalf);
+
+    // var filtered = newArr.filter();
+    // console.log(filtered);
+
+    // var newArr2 = [];
+    // for (var i in argsFirstHalf){
+    //     // console.log(argsFirstHalf[i]);
+    //     for (var j in newArr){
+    //         if (argsFirstHalf[i] === newArr[j]){
+    //             // console.log(newArr[i]);
+    //             newArr2.push(newArr[i])
+    //         }
+    //     }
+    // }
+    // console.log(newArr2);
+
+    // console.log(newArr);
+    // var newArrLength = newArr.length;
+    // console.log(newArrLength);
 
 
 
