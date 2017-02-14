@@ -9,58 +9,29 @@
 
 function destroyer(arr) {
     // Remove all the values
-    var args = Array.prototype.slice.call(arguments);
-    var argsLength = args.length;
-    console.log(args);
-    var newArr = [];
-    newArr = Array.from(arr);
-    console.log(newArr);
+    //See lisab kõik funktsiooni argumendid yhiseks mitmerealiseks arrayks!!!
+    // var args = Array.prototype.slice.call(arguments);
+    // console.log(args);
+    //See võtab funktsiooni argumentidest ainult array-d
+    var newArry = arr;
+    console.log(newArry);
+    //See võtab funktsiooni argumendid kohalt 1 ja lisab need uude arraysse!!!
+    var filters = Array.prototype.slice.call(arguments, 1);
+    console.log("Filters: " + filters);
 
-    var argsFirstHalf;
+    var filteredArray = newArry.filter(function(i){
+        if(filters.indexOf(i) !== -1){
+            console.log("Not pass: " + i);
+            return false;
+        }
+        console.log("Pass: " + i);
+        return true;
+    });
 
-    function thisIsFilter(inputArr) {
-        argsFirstHalf  = inputArr.slice(1,argsLength);
-        return argsFirstHalf;
-    }
-    thisIsFilter(args);
-
-    console.log(argsFirstHalf);
-
-    // var filtered = newArr.filter();
-    // console.log(filtered);
-
-    // var newArr2 = [];
-    // for (var i in argsFirstHalf){
-    //     // console.log(argsFirstHalf[i]);
-    //     for (var j in newArr){
-    //         if (argsFirstHalf[i] === newArr[j]){
-    //             // console.log(newArr[i]);
-    //             newArr2.push(newArr[i])
-    //         }
-    //     }
-    // }
-    // console.log(newArr2);
-
-    // console.log(newArr);
-    // var newArrLength = newArr.length;
-    // console.log(newArrLength);
-
-
-
-    // var lastElemnt = arr[newArr.length-1];
-    // console.log(lastElemnt);
-    // var nextToLastElem = arr[newArr.length-2];
-    // console.log(nextToLastElem);
-    // var newArr2 = [];
-    // for (var i in newArr){
-    //     if (arr[i] !== lastElemnt && arr[i] !== nextToLastElem){
-    //         newArr2.push(newArr[i])
-    //     }
-    // }
-    // console.log(newArr2);
-    // return arr;
+    console.log(filteredArray);
+    return filteredArray;
 }
 
 // destroyer([1, 2, 3, 1, 2, 3], 2, 3);
-destroyer([3, 5, 1, 2, 2], 2, 3, 5);
-// destroyer(["tree", "hamburger", 53], "tree", 53);
+// destroyer([3, 5, 1, 2, 2], 2, 3, 5);
+destroyer(["tree", "hamburger", 53], "tree", 53);
